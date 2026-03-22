@@ -296,3 +296,71 @@ APIs estruturam sistemas modernos.
 🪖 **ORDEM FINAL:**
 Quem entende a estrutura não depende de tentativa e erro.
 👉 **Opera com precisão, como um comandante que conhece cada peça do sistema.**
+
+Tarefa 2
+
+Como instrutor, vou te entregar algo sólido, claro e com disciplina de código.
+
+🎯 Função: cálculo de média com tratamento rigoroso
+✅ Requisitos atendidos:
+   Lista não pode ser vazia
+   Todos os elementos devem ser números
+   Tratamento de erros explícito
+
+   🧠 Código Python (amplamente comentado)
+def calcular_media(lista):
+    """
+    Calcula a média de uma lista de números com validações rigorosas.
+
+    Parâmetros:
+    lista (list): Lista contendo números (int ou float)
+
+    Retorno:
+    float: Média dos valores da lista
+
+    Exceções:
+    TypeError: Se a entrada não for uma lista ou contiver elementos não numéricos
+    ValueError: Se a lista estiver vazia
+    """
+
+    # Verifica se o argumento passado é realmente uma lista
+    if not isinstance(lista, list):
+        raise TypeError("O valor fornecido deve ser uma lista.")
+
+    # Verifica se a lista está vazia
+    if len(lista) == 0:
+        raise ValueError("A lista não pode estar vazia.")
+
+    # Inicializa a soma dos valores
+    soma = 0
+
+    # Itera sobre cada elemento da lista
+    for i, elemento in enumerate(lista):
+        # Verifica se cada elemento é numérico (int ou float)
+        if not isinstance(elemento, (int, float)):
+            raise TypeError(f"Elemento inválido na posição {i}: {elemento}")
+
+        # Acumula o valor na soma
+        soma += elemento
+
+    # Calcula a média dividindo a soma pelo número de elementos
+    media = soma / len(lista)
+
+    # Retorna o resultado
+    return media
+    
+---
+  
+  🧪 Casos de teste (exatamente 3)
+
+# Caso 1: Lista válida
+print(calcular_media([10, 20, 30]))  
+# Esperado: 20.0
+
+# Caso 2: Lista vazia (deve gerar erro)
+print(calcular_media([]))  
+# Esperado: ValueError
+
+# Caso 3: Lista com valor inválido (deve gerar erro)
+print(calcular_media([10, "a", 30]))  
+# Esperado: TypeError
